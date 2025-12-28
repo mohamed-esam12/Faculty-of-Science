@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن جامعة القاهرة - كلية العلوم</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-rtl@5.0.0/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5E8B0;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navbar Style - مطابق للرئيسية */
+        .navbar {
+            background-color: var(--dark-bg) !important;
+            padding: 10px 0;
+            border-bottom: 4px solid var(--primary-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .navbar-brand { font-weight: 800; font-size: 1.6rem; color: var(--primary-gold) !important; }
+        .nav-link { color: var(--text-light) !important; font-weight: 500; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-gold) !important; }
+        
+        .dropdown-menu { background-color: var(--dark-bg); border-top: 3px solid var(--primary-gold); }
+        .dropdown-item { color: white; text-align: right; transition: 0.3s; padding: 10px 20px; }
+        .dropdown-item:hover { background-color: var(--primary-gold); color: var(--dark-bg); }
+        .dropdown-item i { width: 25px; color: var(--primary-gold); }
+        .dropdown-item:hover i { color: var(--dark-bg); }
+
+        /* Inner Header - مكان صورة القبة */
+        .inner-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('CairoHeader.jpg') no-repeat center center; 
+            background-size: cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .about-section { padding: 80px 0; line-height: 2; }
+        .section-title { color: var(--dark-gold); margin-bottom: 30px; font-weight: 800; border-right: 5px solid var(--primary-gold); padding-right: 15px; }
+
+        /* Footer */
+        .footer { background-color: var(--dark-bg); color: #ccc; padding: 60px 0 30px; }
+        .footer-heading { color: var(--primary-gold); margin-bottom: 25px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links a { color: #CCCCCC; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary-gold); }
+        .social-icon {
+            display: inline-block; width: 40px; height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%; text-align: center; line-height: 40px;
+            margin-left: 10px; color: white; transition: 0.3s;
+        }
+        .social-icon:hover { background-color: var(--primary-gold); color: var(--dark-bg); transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Logo.png" alt="Logo" style="width: 50px;" class="me-2"> كلية العلوم
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">الصفحة الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">عن الكلية</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="deptDrop" role="button" data-bs-toggle="dropdown">الأقسام</a>
+                        <ul class="dropdown-menu shadow">
+                             <li><a class="dropdown-item" href="BioPhysics.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTech.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="Zoology.html"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                            <li><a class="dropdown-item" href="Botany.html"><i class="fas fa-leaf me-2"></i>قسم علم النبات</a></li>
+                            <li><a class="dropdown-item" href="Chemstiry.html"><i class="fas fa-flask me-2"></i>قسم علم الكيمياء</a></li>
+                            <li><a class="dropdown-item" href="Physics.html"><i class="fas fa-wave-square me-2"></i>قسم علم الفيزياء</a></li>
+                            <li><a class="dropdown-item" href="Astronomy.html"><i class="fas fa-user-astronaut me-2"></i>قسم علم الفلك و علوم الفضاء و الارصاد الجوية</a></li>
+                            <li><a class="dropdown-item" href="Geology.html"><i class="fas fa-mountain me-2"></i>قسم علم الجيولوجيا</a></li>
+                            <li><a class="dropdown-item" href="GeoPhysics.html"><i class="fas fa-earth-africa me-2"></i>قسم علم الجيوفيزياء</a></li>
+                            <li><a class="dropdown-item" href="Entomology.html"><i class="fas fa-bug me-2"></i>قسم علم الحشرات</a></li>
+                            <li><a class="dropdown-item" href="BioChem.html"><i class="fas fa-vial-circle-check me-2"></i>قسم الكيمياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="NanoTech.html"><i class="fas fa-microchip me-2"></i>قسم تكنولوجيا النانو</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="staffDrop" role="button" data-bs-toggle="dropdown">هيئة التدريس</a>
+                        <ul class="dropdown-menu shadow">
+                            <li><a class="dropdown-item" href="BioPhysics_Staff.html"><i class="fas fa-user-tie me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechStaff.html"><i class="fas fa-user-tie me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="ZooStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الحيوان</a></li>
+                            <li><a class="dropdown-item" href="BotStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم النبات</a></li>
+                            <li><a class="dropdown-item" href="ChemStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الكيمياء</a></li>
+                            <li><a class="dropdown-item" href="PhyStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الفيزياء</a></li>
+                            <li><a class="dropdown-item" href="AstroStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الفلك و علوم الفضاء و الارصاد الجوية</a></li>
+                            <li><a class="dropdown-item" href="GeoStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الجيولوجيا</a></li>
+                            <li><a class="dropdown-item" href="GeoPhyStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الجيوفيزياء</a></li>
+                            <li><a class="dropdown-item" href="EntomoStaff.html"><i class="fas fa-user-tie me-2"></i>قسم علم الحشرات</a></li>
+                            <li><a class="dropdown-item" href="BioChemStaff.html"><i class="fas fa-user-tie me-2"></i>قسم الكيمياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="NanoTechStaff.html"><i class="fas fa-user-tie me-2"></i>قسم تكنولوجيا النانو</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDrop" role="button" data-bs-toggle="dropdown">الأبحاث</a>
+                        <ul class="dropdown-menu shadow">
+                            <li><a class="dropdown-item" href="BioPhysicsR.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechR.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="ZoologyR.html"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                            <li><a class="dropdown-item" href="BotanyR.html"><i class="fas fa-leaf me-2"></i>قسم علم النبات</a></li>
+                            <li><a class="dropdown-item" href="ChemstiryR.html"><i class="fas fa-flask me-2"></i>قسم علم الكيمياء</a></li>
+                            <li><a class="dropdown-item" href="PhysicsR.html"><i class="fas fa-wave-square me-2"></i>قسم علم الفيزياء</a></li>
+                            <li><a class="dropdown-item" href="AstronomyR.html"><i class="fas fa-user-astronaut me-2"></i>قسم علم الفلك و علوم الفضاء و الارصاد الجوية</a></li>
+                            <li><a class="dropdown-item" href="GeologyR.html"><i class="fas fa-mountain me-2"></i>قسم علم الجيولوجيا</a></li>
+                            <li><a class="dropdown-item" href="GeoPhysicsR.html"><i class="fas fa-earth-africa me-2"></i>قسم علم الجيوفيزياء</a></li>
+                            <li><a class="dropdown-item" href="EntomologyR.html"><i class="fas fa-bug me-2"></i>قسم علم الحشرات</a></li>
+                            <li><a class="dropdown-item" href="BioChemR.html"><i class="fas fa-vial-circle-check me-2"></i>قسم الكيمياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="NanoTechR.html"><i class="fas fa-microchip me-2"></i>قسم تكنولوجيا النانو</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="inner-header">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold" style="color: var(--primary-gold);">عن جامعة القاهرة</h1>
+            <p class="lead">منارة العلم والمعرفة في الشرق الأوسط منذ عام 1908</p>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title">تاريخ الجامعة</h2>
+                    <p>تعد جامعة القاهرة هي ثاني أقدم الجامعات المصرية والثالثة عربياً. تأسست كلياتها المختلفة في عهد محمد علي، ثم تم افتتاحها كجامعة أهلية في عام 1908 لتصبح قلب الحركة العلمية في مصر.</p>
+                    
+                    <h2 class="section-title mt-5">رؤية الكلية</h2>
+                    <p>تسعى كلية العلوم بجامعة القاهرة إلى تحقيق التميز الأكاديمي والبحثي وتخريج كوادر قادرة على المنافسة في سوق العمل المحلي والدولي والمساهمة في حل المشكلات المجتمعية من خلال العلم.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 bg-light text-center border-top border-4 border-warning">
+                        <h4 class="fw-bold mb-4">إحصائيات سريعة</h4>
+                        <div class="mb-3">
+                            <h2 class="fw-bold text-gold" style="color: var(--dark-gold);">اكثر من 100</h2>
+                            <p class="text-muted">عام من العطاء</p>
+                        </div>
+                        <div class="mb-3">
+                            <h2 class="fw-bold text-gold" style="color: var(--dark-gold);">28</h2>
+                            <p class="text-muted">كلية ومعهد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold text-gold mb-4" style="color: var(--primary-gold);">كلية العلوم</h2>
+                    <p>جامعة القاهرة، الجيزة، مصر. منبر العلم والعلماء.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/sci.cu.edu.eg" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الصفحة الرئيسية</a></li>
+                        <li><a href="https://science-cairo.com/">موقع شئون الطلاب</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+    <h5 class="footer-heading">معلومات الاتصال</h5>
+    <ul class="footer-links">
+        <li>
+            <a href="https://maps.app.goo.gl/jEvYS2xbYboKSvXk8" target="_blank">
+                <i class="fas fa-map-marker-alt me-2"></i> ١ شارع الجامعة، الجيزة، مصر
+            </a>
+        </li>
+
+        <li>
+            <a href="mailto:info@cu.edu.eg">
+                <i class="fas fa-envelope me-2"></i> info@cu.edu.eg
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+            <div class="text-center mt-5 pt-4 border-top opacity-50">
+                <p>جميع الحقوق محفوظة © جامعة القاهرة 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

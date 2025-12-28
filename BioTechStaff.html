@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعضاء هيئة التدريس والهيئة المعاونة | قسم التقنية الحيوية</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-rtl@5.0.0/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5E8B0;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+            background-color: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--dark-bg);
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+        }
+        
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            background-color: var(--dark-bg);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        
+        .dropdown-item {
+            color: var(--text-light);
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+        }
+        
+        .dropdown-toggle::after {
+            margin-right: 5px;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 150px 0 80px;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Faculty Section */
+        .faculty-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 15px auto;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faculty-name {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .faculty-degree {
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        /* Degree Badges */
+        .degree-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .degree-professor {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--dark-gold);
+        }
+        
+        .degree-assistant {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: #0056b3;
+        }
+        
+        .degree-teacher {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #1e7e34;
+        }
+        
+        .degree-assistant-teacher {
+            background-color: rgba(108, 117, 125, 0.1);
+            color: #495057;
+        }
+        
+        .degree-assistant-professor {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #b58900;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Notes Section */
+        .notes-section {
+            padding: 60px 0;
+        }
+        
+        .note-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--primary-gold);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .note-text {
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-heading {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-gold);
+            margin-top: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #999999;
+            font-size: 0.9rem;
+        }
+        
+        /* RTL Specific Adjustments */
+        .me-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0 !important;
+        }
+        
+        .ms-1 {
+            margin-right: 0.25rem !important;
+            margin-left: 0 !important;
+        }
+        
+        .ms-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .faculty-card {
+                padding: 20px;
+            }
+            
+            .dropdown-menu {
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="Logo.png" style="width: 100px;"> كلية العلوم </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الكلية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأقسام
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="BioPhysics.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTech.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="Zoology.html"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            هيئة التدريس
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="Physics_Staff.html"><i class="fas fa-user-tie me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-graduate me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="zoostaff.html"><i class="fas fa-user-md me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأبحاث
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="PhysicsR.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechR.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">أعضاء هيئة التدريس والهيئة المعاونة</h1>
+            <p class="page-subtitle">قسم التقنية الحيوية - كلية العلوم بجامعة القاهرة</p>
+        </div>
+    </header>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">إحصائيات القسم</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">عضو هيئة تدريس</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">مدرس مساعد</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">معيدين</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">إجمالي أعضاء القسم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Members Section -->
+    <section class="faculty-section">
+        <div class="container">
+            <h2 class="section-title">أعضاء هيئة التدريس</h2>
+            <div class="row" id="faculty-container">
+                <!-- Faculty members will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistant Staff Section -->
+    <section class="faculty-section" style="background-color: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2 class="section-title">المعيدين والمدرسين المساعدين</h2>
+            <div class="row" id="assistant-container">
+                <!-- Assistant staff will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes Section -->
+    <section class="notes-section">
+        <div class="container">
+            <h2 class="section-title">ملاحظات</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="note-item">
+                        <p class="note-text"><i class="fas fa-info-circle me-2" style="color: var(--primary-gold);"></i>بعض أعضاء الهيئة المعاونة لديهم إجازات خاصة (ابتعاث خارجي، إجازة وضع، إلخ)</p>
+                    </div>
+                    <div class="note-item">
+                        <p class="note-text"><i class="fas fa-graduation-cap me-2" style="color: var(--primary-gold);"></i>يضم القسم نخبة من الأساتذة المتخصصين في مجال التقنية الحيوية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-logo">كلية العلوم</div>
+                    <p class="footer-text">تأسست كلية العلوم بجامعة القاهرة عام 1925، وهي من الكليات الحكومية الرائدة في مصر، المكرسة للتميز في التدريس والبحث وخدمة المجتمع.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/sci.cu.edu.eg" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/faculty-of-science-cairo-university/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">عن الكلية</a></li>
+                        <li><a href="about_cu.html">عن الجامعة</a></li>
+                        <li><a href="https://science-cairo.com/">موقع شؤون الطلاب</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">معلومات الاتصال</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://maps.app.goo.gl/jEvYS2xbYboKSvXk8" target="_blank">
+                                <i class="fas fa-map-marker-alt me-2"></i> ١ شارع الجامعة، الجيزة، مصر
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@cu.edu.eg">
+                                <i class="fas fa-envelope me-2"></i> info@cu.edu.eg
+                            </a>        
+                        </li>    
+                    </ul>
+                </div>
+                </div>
+            <div class="copyright">
+                <p>تم تصميمها من <a href="https://github.com/medoiiehab" class="p0 text-decoration-none">Medoiiehab</a>
+                    , جميع الحقوق محفوظة ©    
+                    &nbsp;&nbsp;<a href="mailto:medoiiehab@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://t.me/MedoIIehab" class="social-icon"><i class="fa-solid fa-paper-plane"></i></a>
+                </p>
+          
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+
+        // Faculty data for Biotechnology Department
+        const facultyMembers = [
+            // أساتذة
+            { id: 1, name: "أ.د. رفعت محمد رفعت جبر", degree: "أستاذ ورئيس القسم", type: "professor" },
+            { id: 2, name: "أ.د. عماد محمود الزيات", degree: "أستاذ متفرغ", type: "professor" },
+            { id: 3, name: "أ.د. عزة محمد الأمير", degree: "أستاذ متفرغ", type: "professor" },
+            { id: 4, name: "أ.د. سحر أحمد فضل الله", degree: "أستاذ", type: "professor" },
+            { id: 5, name: "أ.د. عزة محمد الجندي", degree: "أستاذ", type: "professor" },
+            { id: 6, name: "أ.د. علياء أحمد فريد", degree: "أستاذ", type: "professor" },
+            { id: 7, name: "أ.د. أحمد سيد فؤاد", degree: "أستاذ", type: "professor" },
+            { id: 8, name: "أ.د. أميرة عفيفي عبد الحميد", degree: "أستاذ", type: "professor" },
+            { id: 9, name: "د. طارق يحيي سليمان قابيل", degree: "أستاذ متفرغ", type: "professor" },
+            
+            // مدرسون
+            { id: 10, name: "د. ندي عبد العزيز محمد", degree: "مدرس", type: "teacher" },
+            { id: 11, name: "د. عبير محسن محمد", degree: "مدرس", type: "teacher" },
+            { id: 12, name: "د. دينا عمرو عبد الحكيم", degree: "مدرس", type: "teacher" },
+            { id: 13, name: "د. نهلة أسامة محمد", degree: "مدرس", type: "teacher" },
+            { id: 14, name: "د. نورهان يحيي مصطفي", degree: "مدرس", type: "teacher" },
+            { id: 15, name: "د. أماني السيد صابر عمار", degree: "مدرس", type: "teacher" }
+        ];
+
+        // Assistant staff data
+        const assistantStaff = [
+            { id: 1, name: "منار هشام أحمد", degree: "مدرس مساعد", note: "مبتعثة خارجياً", type: "assistant-teacher" },
+            { id: 2, name: "أمنية أسامة محمد", degree: "مدرس مساعد", note: "مبتعثة خارجياً", type: "assistant-teacher" },
+            { id: 3, name: "سارة حمدي أحمد", degree: "مدرس مساعد", note: "إجازة وضع", type: "assistant-teacher" },
+            { id: 4, name: "أية علي مصطفى محمد", degree: "مدرس مساعد", type: "assistant-teacher" },
+            { id: 5, name: "إسلام عبد المجيد حسن", degree: "مدرس مساعد", note: "مبتعث داخلي", type: "assistant-teacher" },
+            { id: 6, name: "منة محمود عبد الظاهر", degree: "معيدة", type: "assistant" },
+            { id: 7, name: "ايه سمير إبراهيم", degree: "معيدة", type: "assistant" },
+            { id: 8, name: "هاجر خالد سليمان", degree: "معيدة", note: "مبتعثة خارجياً", type: "assistant" },
+            { id: 9, name: "لميس عبدالله إسماعيل", degree: "معيدة", type: "assistant" },
+            { id: 10, name: "أنس أحمد رسمي", degree: "معيد", type: "assistant" }
+        ];
+
+        // Function to render faculty cards
+        function renderFacultyCards() {
+            const container = document.getElementById('faculty-container');
+            container.innerHTML = '';
+            
+            facultyMembers.forEach(member => {
+                let degreeBadgeClass = '';
+                switch(member.type) {
+                    case 'professor': degreeBadgeClass = 'degree-professor'; break;
+                    case 'teacher': degreeBadgeClass = 'degree-teacher'; break;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'col-lg-4 col-md-6';
+                card.innerHTML = `
+                    <div class="faculty-card">
+                        <div class="degree-badge ${degreeBadgeClass}">${member.degree}</div>
+                        <h4 class="faculty-name">${member.name}</h4>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Function to render assistant staff cards
+        function renderAssistantStaff() {
+            const container = document.getElementById('assistant-container');
+            container.innerHTML = '';
+            
+            assistantStaff.forEach(staff => {
+                let degreeBadgeClass = '';
+                switch(staff.type) {
+                    case 'assistant-teacher': degreeBadgeClass = 'degree-assistant-teacher'; break;
+                    case 'assistant': degreeBadgeClass = 'degree-assistant'; break;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'col-lg-4 col-md-6';
+                card.innerHTML = `
+                    <div class="faculty-card">
+                        <div class="degree-badge ${degreeBadgeClass}">${staff.degree}</div>
+                        <h4 class="faculty-name">${staff.name}</h4>
+                        ${staff.note ? `<p class="text-muted small"><i class="fas fa-info-circle me-1"></i>${staff.note}</p>` : ''}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFacultyCards();
+            renderAssistantStaff();
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/e78f8f1093.js" crossorigin="anonymous"></script>
+</body>
+</html>

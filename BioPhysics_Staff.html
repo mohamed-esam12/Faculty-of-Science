@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعضاء هيئة التدريس - قسم الفيزياء الحيوية | كلية العلوم بجامعة القاهرة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-rtl@5.0.0/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5E8B0;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+            background-color: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--dark-bg);
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 150px 0 80px;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Faculty Section */
+        .faculty-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 15px auto;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faculty-name {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .faculty-degree {
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .faculty-contact {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary-gold);
+        }
+        
+        .contact-item:hover .contact-icon {
+            background-color: var(--primary-gold);
+            color: white;
+        }
+        
+        /* Degree Badges */
+        .degree-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .degree-professor {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--dark-gold);
+        }
+        
+        .degree-assistant {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: #0056b3;
+        }
+        
+        .degree-teacher {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #1e7e34;
+        }
+        
+        .degree-assistant-teacher {
+            background-color: rgba(108, 117, 125, 0.1);
+            color: #495057;
+        }
+        
+        /* Filter Buttons */
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-gold);
+            color: white;
+            border-color: var(--primary-gold);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-heading {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-gold);
+            margin-top: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #999999;
+            font-size: 0.9rem;
+        }
+        
+        /* RTL Specific Adjustments */
+        .me-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0 !important;
+        }
+        
+        .ms-1 {
+            margin-right: 0.25rem !important;
+            margin-left: 0 !important;
+        }
+        
+        .ms-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .faculty-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+ <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="Logo.png" style="width: 100px;"> كلية العلوم </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الكلية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأقسام
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="BioPhysics.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTech.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="Zoology.html"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            هيئة التدريس
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-tie me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechStaff.html"><i class="fas fa-user-graduate me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="zoostaff.html"><i class="fas fa-user-md me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأبحاث
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="PhysicsR.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechR.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">أعضاء هيئة التدريس</h1>
+            <p class="page-subtitle">قسم الفيزياء الحيوية - كلية العلوم بجامعة القاهرة</p>
+        </div>
+    </header>
+
+    <!-- Faculty Section -->
+    <section class="faculty-section">
+        <div class="container">
+            <h2 class="section-title">السادة أعضاء هيئة التدريس</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="professor">أساتذة</button>
+                <button class="filter-btn" data-filter="assistant">أساتذة مساعدون</button>
+                <button class="filter-btn" data-filter="teacher">مدرسون</button>
+                <button class="filter-btn" data-filter="assistant-teacher">مدرسو مساعدون</button>
+            </div>
+            
+            <div class="row" id="faculty-container">
+                <!-- Faculty members will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-logo">كلية العلوم</div>
+                    <p class="footer-text">تأسست كلية العلوم بجامعة القاهرة عام 1925، وهي من الكليات الحكومية الرائدة في مصر، المكرسة للتميز في التدريس والبحث وخدمة المجتمع.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/sci.cu.edu.eg" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/faculty-of-science-cairo-university/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">عن الكلية</a></li>
+                        <li><a href="about_cu.html">عن الجامعة</a></li>
+                        <li><a href="https://science-cairo.com/">موقع شؤون الطلاب</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">معلومات الاتصال</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://maps.app.goo.gl/jEvYS2xbYboKSvXk8" target="_blank">
+                                <i class="fas fa-map-marker-alt me-2"></i> ١ شارع الجامعة، الجيزة، مصر
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@cu.edu.eg">
+                                <i class="fas fa-envelope me-2"></i> info@cu.edu.eg
+                            </a>        
+                        </li>    
+                    </ul>
+                </div>
+                </div>
+            <div class="copyright">
+                <p>تم تصميمها من <a href="https://github.com/medoiiehab" class="p0 text-decoration-none">Medoiiehab</a>
+                    , جميع الحقوق محفوظة ©    
+                    &nbsp;&nbsp;<a href="mailto:medoiiehab@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://t.me/MedoIIehab" class="social-icon"><i class="fa-solid fa-paper-plane"></i></a>
+                </p>
+          
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+
+        // Faculty data
+        const facultyMembers = [
+            // أساتذة
+            { id: 1, name: "ا.د. أنور عبد العظيم السيد", degree: "أستاذ متفرغ", email: "anwar_esd@yahoo.com", phone: "01000594488", type: "professor" },
+            { id: 2, name: "ا.د. وفاء محمد أحمد خليل", degree: "أستاذ متفرغ", email: "profwafaa_khalil@yahoo.com", phone: "01006080049", type: "professor" },
+            { id: 3, name: "ا.د. على أحمد عبد المنعم اللقانى", degree: "أستاذ متفرغ", email: "lakkani@netscape.net", phone: "01226124029", type: "professor" },
+            { id: 4, name: "ا.د. احمد سلطان محمد عبد المنعم", degree: "أستاذ متفرغ", email: "asoltanh@yahoo.com", phone: "01224340195", type: "professor" },
+            { id: 5, name: "ا.د. أوزيريس ونيس جرجس", degree: "أستاذ متفرغ", email: "osiris_wgr@yahoo.com", phone: "01223251345", type: "professor" },
+            { id: 6, name: "أ.د. مجدى محمد حسنين غنام", degree: "أستاذ متفرغ", email: "mmghannam@sci.cu.edu.eg", phone: "01001348123", type: "professor" },
+            { id: 7, name: "ا.د. مها انور على حسن", degree: "أستاذ متفرغ", email: "maha_areeg@yahoo.com", phone: "01222943259", type: "professor" },
+            { id: 8, name: "أ.د منيرة السيد راجح", degree: "أستاذ متفرغ", email: "monirarageh@yahoo.com", phone: "01226124029", type: "professor" },
+            { id: 9, name: "أ.د. حمدى ابراهيم على مصطفى", degree: "أستاذ متفرغ", email: "hamszil@yahoo.com", phone: "01003956290", type: "professor" },
+            { id: 10, name: "أ.د.محمد حسنين جابر", degree: "أستاذ", email: "gaberm@sci.edu.eg", phone: "01203711114", type: "professor" },
+            { id: 11, name: "أ.د. ريم حسن نور الدين الجبالى", degree: "أستاذ", email: "r_elgebaly@msn.com", phone: "01001546626", type: "professor" },
+            { id: 12, name: "أ.د. هيثم شرف الدين محمد", degree: "أستاذ", email: "haitham@sci.cu.edu.eg", phone: "01228431709", type: "professor" },
+            { id: 13, name: "أ.د. محمود فوزى حامد", degree: "أستاذ", email: "mfathy@sci.cu.edu.eg", phone: "01222844924", type: "professor" },
+            { id: 14, name: "أ.د. عبده عبده عبد اللاه", degree: "أستاذ", email: "abdo@sci.cu.edu.eg", phone: "01003260523", type: "professor" },
+            
+            // أساتذة مساعدون
+            { id: 15, name: "د. امانى عبد الله على", degree: "أستاذ مساعد متفرغ", email: "amanyabdalla63@yahoo.com", phone: "01001347526", type: "assistant" },
+            { id: 16, name: "د. محمد عطا محمد الحاج", degree: "أستاذ مساعد", email: "maelhag@yahoo.com", phone: "01221775583", type: "assistant" },
+            { id: 17, name: "د. هبه محمد فهمى عبد الباقى", degree: "أستاذ مساعد", email: "heba_moh_fahmi@yahoo.com", phone: "01223785563", type: "assistant" },
+            { id: 18, name: "د. محمد محمود فتحى أحمد", degree: "أستاذ مساعد", email: "mfathy@sci.cu.edu.eg", phone: "01119904332", type: "assistant" },
+            { id: 19, name: "د. نهى محمد سيد", degree: "أستاذ مساعد", email: "nmsayed@sci.cu.edu.eg", phone: "01003840101", type: "assistant" },
+            { id: 20, name: "د. نهى جمال الدين عبد الغنى", degree: "أستاذ مساعد", email: "gamal_noha@yahoo.com", phone: "01063496660", type: "assistant" },
+            { id: 21, name: "د. ميرهان مصطفى درويش", degree: "أستاذ مساعد", email: "mir.msd@gmail.com", phone: "01115500013", type: "assistant" },
+            { id: 22, name: "د. سعيد عبد الفتاح على", degree: "أستاذ مساعد", email: "saidataha@hotmail.com", phone: "01004244502", type: "assistant" },
+            { id: 23, name: "د. ابراهيم محمد عبد الهادى خاطر", degree: "أستاذ مساعد", email: "ibrahim.khater@hotmail.com", phone: "01008019521", type: "assistant" },
+            
+            // مدرسون
+            { id: 24, name: "د.سمر ابراهيم البنان", degree: "مدرس", email: "s_r202083@yahoo.com", phone: "01155471238", type: "teacher" },
+            { id: 25, name: "د. حنان حسين ابراهيم", degree: "مدرس", email: "hhamer@sci.cu.edu.eg", phone: "01155000751", type: "teacher" },
+            { id: 26, name: "د. وسام محمود حمدى", degree: "مدرس", email: "wesam@sci.cu.edu.eg", phone: "01201921724", type: "teacher" },
+            { id: 27, name: "د. أميرة محمد فتيح", degree: "مدرس", email: "Fitieh@ualberta.ca", phone: "01097448565", type: "teacher" },
+            { id: 28, name: "د. ريهام صلاح الدين", degree: "مدرس", email: "reham_prof_salah@yahoo.com", phone: "01008410239", type: "teacher" },
+            { id: 29, name: "د.الاء ممدوح عبد الله اسماعيل", degree: "مدرس", email: "alaammdouhbp@yahoo.com", phone: "01026423891", type: "teacher" },
+            { id: 30, name: "امانى محمد حمد السيد", degree: "مدرس", email: "", phone: "", type: "teacher" },
+            { id: 31, name: "السيدة/ حنان احمد مهران", degree: "مدرس", email: "hananamahran@yahoo.com", phone: "01127697806", type: "teacher" },
+            { id: 32, name: "السيد/ احمد عادل عزت", degree: "مدرس", email: "ezat@sci.cu.edu.eg", phone: "01009373791", type: "teacher" },
+            { id: 33, name: "السيدة / مروة محمد عفيفى", degree: "مدرس", email: "mm.afifi92@gmail.com", phone: "01118082453", type: "teacher" },
+            { id: 34, name: "السيدة/أمنية أشرف سعد", degree: "مدرس", email: "omnia92ashraf@gmail.com", phone: "01114415274", type: "teacher" },
+            { id: 35, name: "الانسة/ سمر محمود محمد", degree: "مدرس", email: "samar.mahmoud.mohamed@hotmail.com", phone: "01144634066", type: "teacher" },
+            
+            // مدرسو مساعدون
+            { id: 36, name: "الانسة / مروة رمضان زكى الجارحى", degree: "مدرس مساعد", email: "marwaelgarhy123@gmail.com", phone: "01022103144", type: "assistant-teacher" },
+            { id: 37, name: "السيدة / اسراء اسامة ذكى", degree: "مدرس مساعد", email: "Esraa_allewaa@yahoo.com", phone: "01148827468", type: "assistant-teacher" },
+            { id: 38, name: "السيدة / فاطمة محمود محمد ياسين", degree: "مدرس مساعد", email: "fatma_bio278@yahoo.com", phone: "01114936068", type: "assistant-teacher" },
+            { id: 39, name: "الانسة / أمنية عاشور على", degree: "مدرس مساعد", email: "omnia.ashoor2016@gmail.com", phone: "01141997169", type: "assistant-teacher" },
+            { id: 40, name: "السيدة/عبير اشرف عبد المختار", degree: "مدرس مساعد", email: "abeerashraf1994@yahoo.com", phone: "01128124564", type: "assistant-teacher" },
+            { id: 41, name: "السيدة / فاطمة محمود عبد الرحمن عبد الصمد", degree: "مدرس مساعد", email: "fatmahadad44@gmail.com", phone: "01030802810", type: "assistant-teacher" },
+            { id: 42, name: "السيدة / آيات محمود مصلح", degree: "مدرس مساعد", email: "ayaatmosleh@gmail.com", phone: "01123402812", type: "assistant-teacher" }
+        ];
+
+        // Function to render faculty cards
+        function renderFacultyCards(filter = 'all') {
+            const container = document.getElementById('faculty-container');
+            container.innerHTML = '';
+            
+            const filteredFaculty = filter === 'all' 
+                ? facultyMembers 
+                : facultyMembers.filter(member => member.type === filter);
+            
+            filteredFaculty.forEach(member => {
+                let degreeBadgeClass = '';
+                switch(member.type) {
+                    case 'professor': degreeBadgeClass = 'degree-professor'; break;
+                    case 'assistant': degreeBadgeClass = 'degree-assistant'; break;
+                    case 'teacher': degreeBadgeClass = 'degree-teacher'; break;
+                    case 'assistant-teacher': degreeBadgeClass = 'degree-assistant-teacher'; break;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'col-lg-4 col-md-6';
+                card.innerHTML = `
+                    <div class="faculty-card">
+                        <div class="degree-badge ${degreeBadgeClass}">${member.degree}</div>
+                        <h4 class="faculty-name">${member.name}</h4>
+                        <div class="faculty-contact">
+                            ${member.email ? `
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <a href="mailto:${member.email}" class="contact-link">${member.email}</a>
+                            </div>
+                            ` : ''}
+                            ${member.phone ? `
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <a href="tel:${member.phone}" class="contact-link">${member.phone}</a>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFacultyCards();
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    // Filter faculty members
+                    renderFacultyCards(this.getAttribute('data-filter'));
+                });
+            });
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/e78f8f1093.js" crossorigin="anonymous"></script>
+</body>
+</html>

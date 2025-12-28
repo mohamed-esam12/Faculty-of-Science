@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قسم علم الحيوان | كلية العلوم بجامعة القاهرة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-rtl@5.0.0/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5E8B0;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+            background-color: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--dark-bg);
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1564349683139-4fcc6c5d0a6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 150px 0 80px;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Department Section */
+        .department-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 15px auto;
+        }
+        
+        .department-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .card-title {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .card-content {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        .card-list li {
+            margin-bottom: 10px;
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .card-list li:before {
+            content: '•';
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            position: absolute;
+            right: 0;
+            top: -5px;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .service-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        
+        .service-content {
+            flex-grow: 1;
+        }
+        
+        .service-title {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .service-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .service-detail {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .service-detail i {
+            color: var(--primary-gold);
+            margin-left: 5px;
+        }
+        
+        /* Specializations Section */
+        .specializations-section {
+            padding: 80px 0;
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .specialization-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        
+        .specialization-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specialization-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+        
+        .specialization-title {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-heading {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-gold);
+            margin-top: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #999999;
+            font-size: 0.9rem;
+        }
+        
+        /* RTL Specific Adjustments */
+        .me-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0 !important;
+        }
+        
+        .ms-1 {
+            margin-right: 0.25rem !important;
+            margin-left: 0 !important;
+        }
+        
+        .ms-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .department-card {
+                padding: 20px;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="Logo.png" style="width: 100px;"> كلية العلوم </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">عن الكلية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأقسام
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="BioPhysics.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTech.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            هيئة التدريس
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="Physics_Staff.html"><i class="fas fa-user-tie me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechStaff.html"><i class="fas fa-user-graduate me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="zoostaff.html"><i class="fas fa-user-md me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأبحاث
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="PhysicsR.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechR.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">قسم علم الحيوان</h1>
+            <p class="page-subtitle">كلية العلوم - جامعة القاهرة | دراسة الحياة الحيوانية بجميع أشكالها وتفاعلاتها</p>
+        </div>
+    </header>
+
+    <!-- Chairman Message Section -->
+    <section class="department-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h2 class="card-title">كلمة رئيس مجلس القسم</h2>
+                        <div class="card-content">
+                            <h4 class="text-center mb-4" style="color: var(--primary-gold);">الأستاذ الدكتور / سلوى عبد الحميد حمدى عبد السالم</h4>
+                            <p class="text-center mb-4">رئيس مجلس قسم علم الحيوان</p>
+                            <p class="mb-4">كلية العلوم هي منارة العلم والتعليم والبحث العلمي ومنبع العطاء الذي يشع نوره على كل أرجاء مصر والعالم العربي من أجل بناء مجتمع التقدم والرقي وإعداد جيل من العلماء يشارك في التنمية والبناء.</p>
+                            <p>قسم علم الحيوان كان دوما من الاقسام الرائدة بالكلية فمن هذا القسم خرجت اول رسالة ماجستير في كلية العلوم وكانت لاستاذنا الجليل عالم البحار الشهير الاستاذ الدكتور حامد عبدالفتاح جوهر (1931) والذي كان أول أستاذا حصل على دكتوراه العلوم DSc بكلية العلوم (1940).</p>
+                            <p>كل الشكر والتقدير إلى جميع أعضاء هيئة التدريس والهيئة المعاونة والموظفين والعمال الملتزمين والذين يعملون بجد وإخلاص وتفاني وإنتماء لهذا القسم العريق. وفقنا الله جميعا.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department History Section -->
+    <section class="department-section" style="background-color: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2 class="section-title">نبذة تاريخية عن القسم</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 class="card-title">تاريخ تأسيس القسم</h3>
+                        <div class="card-content">
+                            <p>أنشئ قسم علم الحيوان مع انشاء كلية العلوم بأقسامها الستة (الفيزياء - الكيمياء - الحيوان - النبات - الرياضة - الجيولوجيا) في 11 مارس عام 1925.</p>
+                            <p>في العهد الأول للقسم كان معظم الإهتمام منصرفاً إلى تدريس المقررات الأساسية، بالإضافة إلى الدراسات التصنيفية للفقاريات واللافقاريات، وعلم التشريح المقارن والأجنة والفسيولوجيا المقارنة وعلم البيئة والحشرات.</p>
+                            <p>ومما هو جدير بالذكر أن قسم الحيوان منذ إنشاؤه كان يقوم بتدريس علم الحشرات ضمن مقرراته، قبل أن يصدر قراراً بإنشاء قسماً مستقلاً لعلم الحشرات عام 1948. ومما يذكر أنه كان ضمن هيئة التدريس بالقسم أحد علماء الحشرات العالميين وهو العالم المصري الدكتور/حسن أفلاطون الذي إنضم للقسم عام 1928.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="department-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h2 class="card-title">رؤية القسم</h2>
+                        <div class="card-content">
+                            <p>يسعى قسم علم الحيوان إلى أن يكون مركزًا علميًا متميزًا في التعليم والبحث في مجالات علوم الحياة، من خلال دراسة الفقاريات، الالفقاريات، الفسيولوجى، علم وظائف الاعضاءء علم أمراض الدم، علم الأجنة، علم المناعة، علم الطفيليات، علم الخلايا، علم الأنسجة، علم الوراثة وكيمياء الأنسجة والبيولوجيا الجزيئية، التشريح المقارن للفقاريات وبيئة وسلوك الحيوان.</p>
+                            <p>ويهدف إلى دمج المعرفة الأساسية مع التطبيقات الحديثة لخدمة المجتمع ومواجهة التحديات الصحية والبيئية. ويطمح القسم إلى تحقيق الريادة على المستويين المحلي والإقليمي، مع الحفاظ على جودة الأداء الأكاديمي والبحثي.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h2 class="card-title">رسالة القسم</h2>
+                        <div class="card-content">
+                            <p>يلتزم قسم علم الحيوان بإعداد خريجين مؤهلين علميًا ومهاريًا في تخصصات علوم الحيوان، مزودين بأسس علمية حديثة وفهم معمق للعمليات الحيوية والسلوكية والبيئية للكائنات الحية.</p>
+                            <p>يعمل القسم على تعزيز التفكير النقدي والبحث العلمي التطبيقي، مع الالتزام بأخلاقيات المهنة، وتهيئة الكوادر العلمية القادرة على الابتكار والمنافسة في المجالات الأكاديمية، البحثية، والصناعية على المستويين المحلي والدولي.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Goals Section -->
+    <section class="department-section" style="background-color: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2 class="section-title">أهداف القسم</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="card-title">إعداد الخريجين</h3>
+                        <div class="card-content">
+                            <p>إعداد خريجين مؤهلين علميًا وعمليًا في تخصصات علم الحيوان المختلفة، قادرين على المنافسة في سوق العمل المحلي والإقليمي.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="card-title">تطوير المناهج</h3>
+                        <div class="card-content">
+                            <p>تطوير المناهج الدراسية لتواكب أحدث التطورات العلمية والاحتياجات المجتمعية.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="card-title">دعم البحث العلمي</h3>
+                        <div class="card-content">
+                            <p>دعم البحث العلمي في مجالات الفسيولوجيا، البيئة، الوراثة، والطفيليات.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="card-title">تقديم الاستشارات</h3>
+                        <div class="card-content">
+                            <p>تقديم الاستشارات العلمية والتطبيقات العملية التي تخدم مجالات الطب البيطري والزراعة والصحة العامة.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="card-title">تعزيز التعاون</h3>
+                        <div class="card-content">
+                            <p>تعزيز التعاون الأكاديمي والبحثي على المستويين المحلي والدولي من أجل تحقيق التنمية المستدامة وخدمة المجتمع.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="department-card text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">خدمة المجتمع</h3>
+                        <div class="card-content">
+                            <p>تقديم خدمات مجتمعية واستشارية تخدم احتياجات المجتمع في مختلف المجالات.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="specializations-section">
+        <div class="container">
+            <h2 class="section-title">التخصصات الدقيقة بالقسم</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة الفسيولوجيا الجزيئية المتكاملة</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة اللافقاريات والطفيليات</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة المناعة</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة البيئة الحيوانية</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة بيولوجيا الخلية وعلم الأنسجة والوراثة</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="specialization-card">
+                        <div class="specialization-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3 class="specialization-title">شعبة التشريح المقارن والأجنة</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Opportunities Section -->
+    <section class="department-section">
+        <div class="container">
+            <h2 class="section-title">مجالات عمل خريجي القسم</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="card-title">فرص العمل المتاحة</h3>
+                        <div class="card-content">
+                            <p>يتميز خريجي قسم علم الحيوان بالقدرة على التفكير المنطقي المستقل لحل المشكلات البحثية والبيئية التي تؤهله للعمل في المجالات الآتية:</p>
+                            <ul class="card-list">
+                                <li>معامل التحاليل الطبية (حيث توفر النقابة ترخيص مزاولة المهنة لخريجي قسم علم الحيوان)</li>
+                                <li>شركات الأدوية والكيمياويات والصناعات الغذائية</li>
+                                <li>مراكز الخصوبة والحقن المجهري</li>
+                                <li>مراكز بحوث الصحراء والطاقة الذرية</li>
+                                <li>التقنيات الحيوية والتحليل البيئي</li>
+                                <li>مراكز المصل واللقاح</li>
+                                <li>شركات تقنية وتحلية المياه</li>
+                                <li>رقابة وتوكيد الجودة بالمصانع</li>
+                                <li>العمل في المختبرات الجنائية</li>
+                                <li>التدريس في المدارس والجامعات</li>
+                                <li>العمل في وزارة الصحة والمختبرات الصحية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="department-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-title">تطور القسم الأكاديمي</h3>
+                        <div class="card-content">
+                            <p>ومع تطور علم الحيوان وتشعب فروعه وإعتماده المتزايد على التخصصات الأخرى كالفيزياء والكيمياء وإبتكار التقنيات الحديثة والإتجاه نحو المعالجة البيئية، تطور تدريس علم الحيوان ليشمل مقررات مثل:</p>
+                            <ul class="card-list">
+                                <li>بيولوجيا الخلية</li>
+                                <li>الهستولوجيا الكيميائية</li>
+                                <li>الوراثة الخلوية</li>
+                                <li>البيولوجيا الجزيئية</li>
+                                <li>الهندسة الوراثية</li>
+                                <li>بيولوجيا الأورام</li>
+                                <li>زراعة الأنسجة</li>
+                                <li>بيوتكنولوجي</li>
+                                <li>علم الأجنة التجريبي</li>
+                                <li>علم الفسيولوجيا المقارن</li>
+                                <li>فسيولوجيا الأعصاب</li>
+                                <li>فسيولوجيا القلب والأوعية الدموية</li>
+                                <li>علم الدم</li>
+                                <li>علم السموم</li>
+                                <li>الغدد الصماء</li>
+                                <li>المناعة</li>
+                                <li>الطفيليات</li>
+                                <li>علم الديدان</li>
+                                <li>تصنيف اللافقاريات</li>
+                                <li>البيئة العام والبيئة الصحراوية</li>
+                                <li>بيولوجية البحار والمياه العذبة</li>
+                                <li>البيولوجيا الإشعاعية والبيولوجيا الفيزيائية والتنوع البيولوجي وعلم التشريح المقارن وغيرها من أفرع علم الحيوان المتطورة.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">الخدمات التي يقدمها القسم</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Service 1 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">الخدمات التعليمية</h3>
+                            <p class="service-description">منح درجة البكالوريوس في برنامج كيمياء/حيوان بالإشتراك مع قسم الكيمياء. منح درجة الماجستير. منح درجة دكتوراه الفلسفة في العلوم.</p>
+                        
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">رحلات طلابية وبحثية</h3>
+                            <p class="service-description">تجميع وحفظ العينات الحيوانية وتدريب الطلاب</p>
+                          
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">متحف علم الحيوان التعليمي</h3>
+                            <p class="service-description">عرض مجموعات نادرة من العينات الحفرية والقديمة والحديثة ودائما يتم امداد وتحديث متحف القسم بالعينات الحيوانيه</p>
+                          
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">المجموعة العلمية</h3>
+                            <p class="service-description">امداد وتحديث المجموعة العلمية بالقسم بالعينات الحيوانيه للفحص والاطلاع وامداد المعامل الطلابيه. تصنيف العينات الحبيوانيه والعمل على حفظها لتكون عينات مرجعية</p>
+                       
+                        </div>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">الدعم البحثي</h3>
+                            <p class="service-description">الإشراف على الرسائل والدعم التقني في الأبحاث. الخدمات البحثية والقيام بالاشراف على الرسائل الماجستير والدكتوراة ومساعدة طلاب الدراسات العليا فى اتمام ابحاثهم</p>
+                       
+                        </div>
+                    </div>
+                    
+                    <!-- Service 6 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">خدمات المعمل المركزي بالقسم</h3>
+                            <p class="service-description">قياس وتحليل العينات من الداخل والخارج</p>
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- Service 7 -->
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">الخدمات المجتمعية والاستشارية</h3>
+                            <p class="service-description">من خلال اللجنة الثقافية بالقسم يقوم القسم بعمل ندوات ومحاضرات توعوية وورش عمل تخدم احتياجات المجتمع</p>
+                          
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-logo">كلية العلوم</div>
+                    <p class="footer-text">تأسست كلية العلوم بجامعة القاهرة عام 1925، وهي من الكليات الحكومية الرائدة في مصر، المكرسة للتميز في التدريس والبحث وخدمة المجتمع.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/sci.cu.edu.eg" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/faculty-of-science-cairo-university/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">عن الكلية</a></li>
+                        <li><a href="about_cu.html">عن الجامعة</a></li>
+                        <li><a href="https://science-cairo.com/">موقع شؤون الطلاب</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">معلومات الاتصال</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://maps.app.goo.gl/jEvYS2xbYboKSvXk8" target="_blank">
+                                <i class="fas fa-map-marker-alt me-2"></i> ١ شارع الجامعة، الجيزة، مصر
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@cu.edu.eg">
+                                <i class="fas fa-envelope me-2"></i> info@cu.edu.eg
+                            </a>        
+                        </li>    
+                    </ul>
+                </div>
+                </div>
+            <div class="copyright">
+                <p>تم تصميمها من <a href="https://github.com/medoiiehab" class="p0 text-decoration-none">Medoiiehab</a>
+                    , جميع الحقوق محفوظة ©    
+                    &nbsp;&nbsp;<a href="mailto:medoiiehab@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://t.me/MedoIIehab" class="social-icon"><i class="fa-solid fa-paper-plane"></i></a>
+                </p>
+          
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/e78f8f1093.js" crossorigin="anonymous"></script>
+</body>
+</html>

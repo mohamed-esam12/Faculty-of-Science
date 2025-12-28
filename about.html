@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الكلية - كلية العلوم بجامعة القاهرة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-rtl@5.0.0/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5E8B0;
+            --dark-bg: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Header Section */
+        .about-header-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1926&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .header-content {
+            z-index: 2;
+        }
+        
+        .university-logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .header-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn-gold {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--dark-bg);
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gold) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 15px auto;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        
+        .history-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-gold);
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-gold);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .right {
+            right: 0;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .left {
+            right: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Departments Section */
+        .departments-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .department-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .department-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .department-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+        
+        .department-title {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: var(--text-dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-left: 10px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-gold);
+            color: var(--text-dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-heading {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-gold);
+            margin-top: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #999999;
+            font-size: 0.9rem;
+        }
+        
+        /* RTL Specific Adjustments */
+        .me-2 {
+            margin-left: 0.5rem !important;
+            margin-right: 0 !important;
+        }
+        
+        .ms-1 {
+            margin-right: 0.25rem !important;
+            margin-left: 0 !important;
+        }
+        
+        .ms-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .timeline::after {
+                right: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 25px;
+            }
+            
+            .timeline-item::after {
+                right: 21px;
+                left: auto;
+            }
+            
+            .left, .right {
+                right: 0%;
+            }
+        }
+
+        .btn-link { color: #333333 !important;}
+        .btn-link:hover { color: var(--primary-gold) !important; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="Logo.png" style="width: 100px;"> كلية العلوم </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">عن الكلية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأقسام
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="BioPhysics.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTech.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="Zoology.html"><i class="fas fa-paw me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            هيئة التدريس
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="Physics_Staff.html"><i class="fas fa-user-tie me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechStaff.html"><i class="fas fa-user-graduate me-2"></i>قسم التقنية الحيوية</a></li>
+                            <li><a class="dropdown-item" href="zoostaff.html"><i class="fas fa-user-md me-2"></i>قسم علم الحيوان</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            الأبحاث
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="facultyDropdown">
+                            <li><a class="dropdown-item" href="PhysicsR.html"><i class="fas fa-atom me-2"></i>قسم الفيزياء الحيوية</a></li>
+                            <li><a class="dropdown-item" href="BioTechR.html"><i class="fas fa-dna me-2"></i>قسم التقنية الحيوية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="about-header-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="header-content">
+                        <h1 class="header-title">عن كلية العلوم</h1>
+                        <p class="header-subtitle">تراث من التميز الأكاديمي والابتكار والقيادة منذ عام 1925</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">نبذة عن الكلية</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="about-text">
+                        كلية العلوم بجامعة القاهرة هي إحدى أعرق كليات العلوم في مصر والشرق الأوسط، حيث تأسست عام 1925 كجزء من الجامعة المصرية (جامعة فؤاد الأول سابقاً). تهدف الكلية إلى تقديم تعليم وبحث علمي متميز في مختلف فروع العلوم الأساسية والتطبيقية.
+                    </p>
+                    <p class="about-text">
+                        تسعى الكلية إلى إعداد خريجين مؤهلين علمياً ومهنياً، قادرين على المنافسة في سوق العمل المحلي والدولي، والإسهام في خدمة المجتمع وتنمية البيئة من خلال تقديم برامج أكاديمية وبحثية متميزة، وإجراء البحوث العلمية المتقدمة التي تواكب التطورات العالمية.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <p class="about-text">
+                        تضم الكلية نخبة متميزة من أعضاء هيئة التدريس والباحثين في مختلف التخصصات العلمية، وتحتوي على معامل بحثية متطورة ومكتبة علمية غنية، بالإضافة إلى مراكز بحثية متخصصة تساهم في دعم البحث العلمي وربطه بمتطلبات المجتمع والصناعة.
+                    </p>
+                    <p class="about-text">
+                        تمنح الكلية درجات البكالوريوس والدراسات العليا (الدبلوم والماجستير والدكتوراه) في مختلف التخصصات العلمية، وتشارك بشكل فعال في المشروعات البحثية المحلية والدولية، وتنظم المؤتمرات والندوات العلمية بشكل دوري.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section" id="history">
+        <div class="container">
+            <h2 class="section-title">محطات تاريخية</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1925</div>
+                        <h3>التأسيس</h3>
+                        <p>تأسيس كلية العلوم كجزء من الجامعة المصرية (جامعة فؤاد الأول سابقاً) مع أربعة أقسام علمية أساسية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1950</div>
+                        <h3>التوسع في البرامج</h3>
+                        <p>إضافة برامج الدراسات العليا وافتتاح أقسام علمية جديدة لتلبية احتياجات التطور العلمي.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1975</div>
+                        <h3>الانتقال إلى الحرم الجامعي الجديد</h3>
+                        <p>انتقال الكلية إلى مبناها الجديد في الحرم الجامعي بجامعة القاهرة بالجيزة.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1990</div>
+                        <h3>تطوير المعامل والمرافق</h3>
+                        <p>تحديث وتطوير المعامل البحثية والمرافق التعليمية لتواكب التطورات التكنولوجية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <h3>اعتماد برامج جديدة</h3>
+                        <p>اعتماد برامج أكاديمية جديدة في مجالات العلوم المتقدمة والتقنيات الحيوية.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>التعليم الهجين والرقمي</h3>
+                        <p>تطبيق نظام التعليم الهجين وتعزيز البنية التحتية للتعليم الرقمي.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments-section" id="departments">
+        <div class="container">
+            <h2 class="section-title">أقسام الكلية</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card department-card">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top department-img" alt="قسم الفيزياء الحيوية">
+                        <div class="card-body text-center">
+                            <i class="fas fa-atom department-icon"></i>
+                            <h5 class="department-title">قسم الفيزياء الحيوية</h5>
+                            <p class="card-text">يهتم هذا القسم بدراسة الظواهر الفيزيائية في الأنظمة البيولوجية، ويجمع بين مفاهيم الفيزياء والبيولوجيا لفهم الآليات الحيوية على المستوى الجزيئي والخلوي.</p>
+                            <a href="BioPhysics.html" class="btn btn-gold">استكشاف القسم</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card department-card">
+                        <img src="https://images.unsplash.com/photo-1532187863485-48de9eec835b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top department-img" alt="قسم التقنية الحيوية">
+                        <div class="card-body text-center">
+                            <i class="fas fa-dna department-icon"></i>
+                            <h5 class="department-title">قسم التقنية الحيوية</h5>
+                            <p class="card-text">يركز هذا القسم على تطبيقات التقنيات الحيوية في مجالات الطب، الزراعة، والصناعة، ويشمل دراسة الهندسة الوراثية، والتقنيات الجزيئية، والتقنيات الحيوية الدقيقة.</p>
+                            <a href="BioTech.html" class="btn btn-gold">استكشاف القسم</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card department-card">
+                        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top department-img" alt="قسم علم الحيوان">
+                        <div class="card-body text-center">
+                            <i class="fas fa-paw department-icon"></i>
+                            <h5 class="department-title">قسم علم الحيوان</h5>
+                            <p class="card-text">يتخصص هذا القسم في دراسة الكائنات الحيوانية من حيث تركيبها، وظائفها، تصنيفها، وتطورها، كما يهتم بدراسة سلوك الحيوانات وبيئتها وتفاعلاتها مع البيئة.</p>
+                            <a href="Zoology.html" class="btn btn-gold">استكشاف القسم</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-logo">كلية العلوم</div>
+                    <p class="footer-text">تأسست كلية العلوم بجامعة القاهرة عام 1925، وهي من الكليات الحكومية الرائدة في مصر، المكرسة للتميز في التدريس والبحث وخدمة المجتمع.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الصفحة الرئيسية</a></li>
+                        <li><a href="about.html">عن الكلية</a></li>
+                        <li><a href="#">القبول والتسجيل</a></li>
+                        <li><a href="#">البحث العلمي</a></li>
+                        <li><a href="#">الحياة الطلابية</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-heading">معلومات الاتصال</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> ١ شارع الجامعة، الجيزة، مصر</li>
+                        <li><i class="fas fa-phone me-2"></i> 20236570000+</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@cu.edu.eg</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">النشرة الإخبارية</h5>
+                    <p class="footer-text">اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات والأخبار.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="بريدك الإلكتروني" aria-label="Email">
+                            <button class="btn btn-gold" type="submit">اشتراك</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>تم تصميمها من <a href="https://github.com/medoiiehab" class="p0 text-decoration-none">Medoiiehab</a>
+                    , جميع الحقوق محفوظة ©    
+                    &nbsp;&nbsp;<a href="mailto:medoiiehab@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://t.me/MedoIIehab" class="social-icon"><i class="fa-solid fa-paper-plane"></i></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/e78f8f1093.js" crossorigin="anonymous"></script>
+</body>
+</html>
